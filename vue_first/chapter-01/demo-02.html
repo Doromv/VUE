@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h1 v-if="type==='A'">A</h1>
+  <h1 v-else-if="type==='B'">B</h1>
+  <h1 v-else>C</h1>
+</div>
+<div id="app1">
+ <li v-for="a in item">
+     {{a.messag}}
+ </li>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+  var vm=new Vue({
+    el: "#app",
+    data:{
+      type: 'A'
+    }
+  });
+  var vm1=new Vue({
+      el: "#app1",
+      data:{
+          item: [
+              {message: "1"},
+              {message: "2"},
+              {message: "3"}
+          ]
+      }
+  });
+</script>
+</body>
+</html>

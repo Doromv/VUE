@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+<!--v-clock解决闪烁问题 -->
+        [v-clock]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="vue">
+    {{info.name}}
+    {{info.address.city}}
+    <a v-bind:href="info.url">Fuck me</a>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+  var vm = new Vue({
+    el:"#vue",
+      data(){
+        return{
+            //返回的请求参数形式，必须和json字符串一样
+            info: {
+                name: null,
+                address: {
+                    street: null,
+                    city: null,
+                    country: null
+                },
+                url: null
+            }
+        }
+      },
+      mounted(){
+        axios.get('../data.json').then(response=>(this.info=response.data));
+      }
+  });
+</script>
+</body>
+</html>

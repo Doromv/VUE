@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<input type="text" v-model="msg">{{msg}} <br>
+<input type="radio" value="男" v-model="sex">男&nbsp;
+<input type="radio" value="女" v-model="sex">女<br>
+  性别为:{{sex}}<br>
+<select v-model="op">
+  <option value="" disabled>---请选择---</option>
+  <option>A</option>
+  <option>B</option>
+  <option>C</option>
+</select>{{op}}
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+  var vm=new Vue({
+    el: "#app",
+    data: {
+      msg: "",
+      sex: "",
+      op: "",
+      checked: "checked",
+        select: "selected"
+    },
+    methods: {}
+  });
+</script>
+</html>
